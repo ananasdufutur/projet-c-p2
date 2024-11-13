@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: untitled10
+# Project: untitled1
 # Configurations: Debug
 # =============================================================================
 
@@ -41,37 +41,73 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/pouss/CLionProjects/untitled10/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target untitled10
+# Object build statements for EXECUTABLE target untitled1
 
 
 #############################################
-# Order-only phony target for untitled10
+# Order-only phony target for untitled1
 
-build cmake_object_order_depends_target_untitled10: phony || CMakeFiles/untitled10.dir
+build cmake_object_order_depends_target_untitled1: phony || CMakeFiles/untitled1.dir
 
-build CMakeFiles/untitled10.dir/main.c.obj: C_COMPILER__untitled10_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/main.c || cmake_object_order_depends_target_untitled10
-  DEP_FILE = CMakeFiles\untitled10.dir\main.c.obj.d
+build CMakeFiles/untitled1.dir/main.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/main.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\main.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\untitled10.dir
-  OBJECT_FILE_DIR = CMakeFiles\untitled10.dir
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+
+build CMakeFiles/untitled1.dir/loc.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/loc.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\loc.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+
+build CMakeFiles/untitled1.dir/moves.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/moves.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\moves.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+
+build CMakeFiles/untitled1.dir/map.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/map.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\map.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+
+build CMakeFiles/untitled1.dir/queue.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/queue.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\queue.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+
+build CMakeFiles/untitled1.dir/stack.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/stack.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\stack.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+
+build CMakeFiles/untitled1.dir/arbre.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/pouss/CLionProjects/untitled10/arbre.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\arbre.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target untitled10
+# Link build statements for EXECUTABLE target untitled1
 
 
 #############################################
-# Link the executable untitled10.exe
+# Link the executable untitled1.exe
 
-build untitled10.exe: C_EXECUTABLE_LINKER__untitled10_Debug CMakeFiles/untitled10.dir/main.c.obj
+build untitled1.exe: C_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/main.c.obj CMakeFiles/untitled1.dir/loc.c.obj CMakeFiles/untitled1.dir/moves.c.obj CMakeFiles/untitled1.dir/map.c.obj CMakeFiles/untitled1.dir/queue.c.obj CMakeFiles/untitled1.dir/stack.c.obj CMakeFiles/untitled1.dir/arbre.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\untitled10.dir
+  OBJECT_DIR = CMakeFiles\untitled1.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = untitled10.exe
-  TARGET_IMPLIB = libuntitled10.dll.a
-  TARGET_PDB = untitled10.exe.dbg
+  TARGET_FILE = untitled1.exe
+  TARGET_IMPLIB = libuntitled1.dll.a
+  TARGET_PDB = untitled1.exe.dbg
 
 
 #############################################
@@ -99,7 +135,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build untitled10: phony untitled10.exe
+build untitled1: phony untitled1.exe
 
 # =============================================================================
 # Folder targets.
@@ -109,7 +145,7 @@ build untitled10: phony untitled10.exe
 #############################################
 # Folder: C:/Users/pouss/CLionProjects/untitled10/cmake-build-debug
 
-build all: phony untitled10.exe
+build all: phony untitled1.exe
 
 # =============================================================================
 # Built-in targets
