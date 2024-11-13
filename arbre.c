@@ -3,7 +3,7 @@
 //
 #include "arbre.h"
 #include "map.h"
-
+#include "loc.h"
 
 t_node *createNode(int val, int nb_sons,int depth)
 {
@@ -23,3 +23,5 @@ t_node *createNode(int val, int nb_sons,int depth)
 t_node *tree(t_map map){
     t_node *new= createNode(0,4,0);
 }
+
+t_localisation loc_init(int, int, t_orientation);
