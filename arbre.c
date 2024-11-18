@@ -24,4 +24,3 @@ t_node *tree(t_map map){
     t_node *new= createNode(0,4,0);
 }
 
-t_localisation loc_init(int, int, t_orientation);
