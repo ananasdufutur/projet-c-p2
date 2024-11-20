@@ -26,3 +26,7 @@ typedef struct s_node
 t_node *createNode(t_localisation ,int, int , int);
 
 t_node *tree(t_map);
+
+void createtree(t_node* ,t_map);
+int mincost(t_map,t_node *);
+void displaytree(t_node* );

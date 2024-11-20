@@ -1,6 +1,7 @@
 #include "arbre.h"
 #include "map.h"
 #include "loc.h"
+#include "stdlib.h"
 
 t_node *createNode(t_localisation loc1, int nb_sons,int depth,int cost)
 {
@@ -10,6 +11,7 @@ t_node *createNode(t_localisation loc1, int nb_sons,int depth,int cost)
     new_node->loc.pos = loc1.pos;
     new_node->nbSons = nb_sons;
     new_node->depth=depth;
+    new_node->cost=cost;
     new_node->sons = (t_node **)malloc(nb_sons*sizeof(t_node *));
     for (int i=0; i <nb_sons; i++)
     {
@@ -24,4 +26,44 @@ t_node *tree(t_map map){
     return new;
 }
 
-#define BANANE 25
+int mincost(t_map map,t_node *tree){
+
+
+    if (tree->nbSons==0){
+        return tree->cost;
+    }
+    int min=10000;
+    for (int i=0;i<tree->nbSons;i++)
+        if (mincost(map,tree->sons[i]+tree->cost)<min){
+            min=mincost(map,tree->sons[i]+tree->cost);
+        }
+
+    return min;
+}
+
+int randomint(int a,int b){
+    srand(1);
+    return (rand()%a);
+}
+
+void createtree(t_node* tree,t_map map){
+    if (tree->loc.pos.x<map.x_max && tree->depth<15){
+        tree->nbSons++;
+        t_localisation loc={LEFT(tree->loc.pos),tree->loc.ori};
+        tree->sons[tree->nbSons]= createNode(loc,0,tree->depth+1,tree->cost+map.costs[loc.pos.x][loc.pos.y]);
+    }
+    if (tree->loc.pos.y<map.y_max && tree->depth<15){
+        tree->nbSons++;
+        t_localisation loc={DOWN(tree->loc.pos),tree->loc.ori};
+        tree->sons[tree->nbSons]= createNode(loc,0,tree->depth+1,tree->cost+map.costs[loc.pos.x][loc.pos.y]);
+    }
+
+}
+
+void displaytree(t_node* tree){
+    printf("%d",tree->cost);
+    for(int i=0;i<tree->nbSons;i++){
+        displaytree(tree->sons[i]);
+    }
+
+}
