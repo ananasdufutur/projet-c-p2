@@ -1,6 +1,3 @@
-//
-// Created by pouss on 13/11/2024.
-//
 #include "arbre.h"
 #include "map.h"
 #include "loc.h"

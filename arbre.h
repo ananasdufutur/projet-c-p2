@@ -1,7 +1,3 @@
-//
-// Created by pouss on 13/11/2024.
-//
-
 #ifndef UNTITLED1_ARBRE_H
 #define UNTITLED1_ARBRE_H
 
@@ -15,14 +11,12 @@
 typedef struct s_node
 {
     t_localisation loc;
-    t_orientation ori;
     int depth;
     int cost;
 
     struct s_node **sons;
-    int nbSons; // taille physique du tableau
-    // more to come !
+    int nbSons; // Taille physique du tableau
 } t_node;
 
-t_node *createNode(t_orientation ori,int value, int nb_sons, int depth);
+t_node *createNode(t_orientation, int, int, int);
 

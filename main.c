@@ -35,23 +35,11 @@ int main() {
         }
         printf("\n");
     }
+
     t_localisation loc;
     loc=loc_init(1,1,NORTH);
 
-
-
     displayMap(map);
-
-
-
-
-
-
-
-
-
-
-
 
     return 0;
 }
