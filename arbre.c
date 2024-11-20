@@ -47,19 +47,19 @@ int randomint(int a,int b){
 }
 
 void createtree(t_node* tree,t_map map){
-    if (tree->loc.pos.x<map.x_max && tree->depth<15){
+    if (tree->loc.pos.x<map.x_max && tree->depth<10){
         tree->nbSons++;
         t_localisation loc={RIGHT(tree->loc.pos),tree->loc.ori};
         tree->sons[tree->nbSons-1]= createNode(loc,0,tree->depth+1,map.costs[loc.pos.x][loc.pos.y]);
         createtree(tree->sons[tree->nbSons-1],map);
-        printf("en x:%d et y:%d ori=%d\n",loc.pos.x,loc.pos.y,loc.ori);
+
     }
-    if (tree->loc.pos.y<map.y_max && tree->depth<15){
+    if (tree->loc.pos.y<map.y_max && tree->depth<10){
         tree->nbSons++;
         t_localisation loc={DOWN(tree->loc.pos),tree->loc.ori};
         tree->sons[tree->nbSons-1]= createNode(loc,0,tree->depth+1,map.costs[loc.pos.x][loc.pos.y]);
         createtree(tree->sons[tree->nbSons-1],map);
-        printf("en x:%d et y:%d ori=%d\n",loc.pos.x,loc.pos.y,loc.ori);
+
     }
     printf("en x:%d et y:%d cost=%d",tree->loc.pos.x,tree->loc.pos.y,tree->cost);
 
