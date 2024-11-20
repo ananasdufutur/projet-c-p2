@@ -21,6 +21,7 @@ t_node *createNode(t_localisation loc1, int nb_sons,int depth,int cost)
 t_node *tree(t_map map){
     t_localisation loc ={{0,0},NORTH};
     t_node *new= createNode(loc,5,0,0);
+    return new;
 }
 
 #define BANANE 25

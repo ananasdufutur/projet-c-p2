@@ -4,7 +4,7 @@
 #include "queue.h"
 #include "stack.h"
 #include "loc.h"
-
+#include "arbre.h"
 int main() {
     t_map map;
 
@@ -36,8 +36,8 @@ int main() {
         printf("\n");
     }
 
-    t_localisation loc;
-    loc=loc_init(1,1,NORTH);
+    t_node * arbre=tree(map);
+    printf("%d %d %d %d %d %d",arbre->cost,arbre->loc.pos.x,arbre->loc.pos.y,arbre->nbSons,arbre->sons,arbre->depth);
 
     displayMap(map);
 

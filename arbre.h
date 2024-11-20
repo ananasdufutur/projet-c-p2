@@ -25,3 +25,4 @@ typedef struct s_node
 
 t_node *createNode(t_localisation ,int, int , int);
 
+t_node *tree(t_map);
