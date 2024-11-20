@@ -5,11 +5,12 @@
 #include "map.h"
 #include "loc.h"
 
-t_node *createNode(t_orientation ori, int nb_sons,int depth,int cost)
+t_node *createNode(t_localisation loc1, int nb_sons,int depth,int cost)
 {
     t_node *new_node;
     new_node = (t_node *)malloc(sizeof(t_node));
-    new_node->loc.ori = ori;
+    new_node->loc.ori = loc1.ori;
+    new_node->loc.pos = loc1.pos;
     new_node->nbSons = nb_sons;
     new_node->depth=depth;
     new_node->sons = (t_node **)malloc(nb_sons*sizeof(t_node *));
@@ -21,6 +22,7 @@ t_node *createNode(t_orientation ori, int nb_sons,int depth,int cost)
 }
 
 t_node *tree(t_map map){
-    t_node *new= createNode(NORTH,5,0,0);
+    t_localisation loc ={{0,0},NORTH};
+    t_node *new= createNode(loc,5,0,0);
 }
 

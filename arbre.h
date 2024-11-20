@@ -15,7 +15,6 @@
 typedef struct s_node
 {
     t_localisation loc;
-    t_orientation ori;
     int depth;
     int cost;
 
@@ -24,5 +23,5 @@ typedef struct s_node
     // more to come !
 } t_node;
 
-t_node *createNode(t_orientation ori,int value, int nb_sons, int depth);
+t_node *createNode(t_localisation ,int, int , int);
 
