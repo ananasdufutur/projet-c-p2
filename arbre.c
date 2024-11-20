@@ -23,3 +23,4 @@ t_node *tree(t_map map){
     t_node *new= createNode(loc,5,0,0);
 }
 
+#define BANANE 25
