@@ -14,6 +14,18 @@ chaque déplacement s'additionnent en fonction du type de terrain :
 |-----------|-----------|-----------|-----------|-----------|
 |   Coût    |     1     |     4     |     2     |   10.000  |
 
+Note : le type de terrain affecte également le déplacement de MARC le robot
+MARC peut effectuer les mouvements suivant :
+
+|  Mouvement  |   Avancer  |    Reculer   |    Tourner    |  Demi-tour |
+|-------------|------------|--------------|---------------|------------|
+|    Type     |10m 20m 30m |      10m     | Droite Gauche |      \     |
+
+## Objectif 
+Le but étant de rendre MARC le robot martien mobile tout en minimisant le coût de déplacement, on est amené à
+utiliser des arbres N-aire pour définir le chemin de MARC.
+Chaque noeud comporte la position de MARC, le coût actuel par rapport à la position et les déplacements disponibles.  
+
 ## Tâches accomplie
 
 - [Structure de l'arbre]
