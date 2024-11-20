@@ -9,14 +9,20 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "moves.h"
+#include "loc.h"
+#include "map.h"
+
 typedef struct s_node
 {
-    int value;
+    t_localisation loc;
+    t_orientation ori;
     int depth;
+    int cost;
+
     struct s_node **sons;
     int nbSons; // taille physique du tableau
     // more to come !
 } t_node;
 
-t_node *createNode(int value, int nb_sons, int depth);
+t_node *createNode(t_orientation ori,int value, int nb_sons, int depth);
 

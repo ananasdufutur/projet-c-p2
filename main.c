@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include "map.h"
+#include "moves.h"
+#include "queue.h"
+#include "stack.h"
+#include "loc.h"
 
 int main() {
     t_map map;
@@ -31,7 +35,22 @@ int main() {
         }
         printf("\n");
     }
+    t_localisation loc;
+    loc=loc_init(1,1,NORTH);
+
+
     displayMap(map);
+
+
+
+
+
+
+
+
+
+
+
 
     return 0;
 }
