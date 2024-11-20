@@ -39,6 +39,7 @@ int main() {
     loc=loc_init(1,1,NORTH);
 
 
+
     displayMap(map);
 
 
