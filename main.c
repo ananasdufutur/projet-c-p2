@@ -36,10 +36,11 @@ int main() {
         printf("\n");
     }
 
-    t_node * arbre=tree(map);
-    printf("%d %d %d %d %d %d",arbre->cost,arbre->loc.pos.x,arbre->loc.pos.y,arbre->nbSons,arbre->sons,arbre->depth);
 
     displayMap(map);
 
+    t_node * arbre=tree(map);
+    printf("%d %d %d %d %d ",arbre->cost,arbre->loc.pos.x,arbre->loc.pos.y,arbre->nbSons,arbre->depth);
+    printf("end");
     return 0;
 }
