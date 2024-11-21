@@ -36,9 +36,7 @@ Chaque noeud comporte la position de MARC, le coût actuel par rapport à la pos
 - [Génération de la position du robot]
 - [Analyse de la complexité]
 
-## Analyse de complexité 
-
-Analyse de la complexité des fonctions dans arbre.c :
+## Analyse de complexité des fonctions utilisées 
 
 1. createNode(t_localisation loc1, int nb_sons, int depth, int cost) :
    - Complexité : O(nb_sons)
