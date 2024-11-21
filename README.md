@@ -29,8 +29,12 @@ Chaque noeud comporte la position de MARC, le coût actuel par rapport à la pos
 ## Tâches accomplie
 
 - [Structure de l'arbre]
-- []
-- []
+- [Création de noeuds]
+- [Création de l'arbre]
+- [Affichage de l'arbre]
+- [Calcul du coût minimal]
+- [Génération de la position du robot]
+- [Analyse de la complexité]
 
 ## Analyse de complexité 
 
