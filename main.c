@@ -5,6 +5,9 @@
 #include "stack.h"
 #include "loc.h"
 #include "arbre.h"
+
+//_________________________________________________________________________________//
+
 int main() {
     t_map map;
 
@@ -16,6 +19,8 @@ int main() {
 #else
     map = createMapFromFile("../maps/example1.map");
 #endif
+
+//_________________________________________________________________________________//
 
     printf("Map created with dimensions %d x %d\n", map.y_max, map.x_max);
     for (int i = 0; i < map.y_max; i++)
@@ -36,6 +41,7 @@ int main() {
         printf("\n");
     }
 
+//_________________________________________________________________________________//
 
     displayMap(map);
 
@@ -48,3 +54,5 @@ int main() {
     printf("%d %d %d %d %d ",arbre->cost,arbre->loc.pos.x,arbre->loc.pos.y,arbre->nbSons,arbre->depth);
     return 0;
 }
+
+//_________________________________________________________________________________//
