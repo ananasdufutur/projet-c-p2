@@ -38,6 +38,7 @@ t_node *tree(t_map);
 
 // Fonction pour générer l'arbre à partir d'un noeud donné et d'une carte
 // Paramètres : noeud, carte
+
 void createtree(t_node* ,t_map);
 
 // Fonction pour calculer le coût minimal dans l'arbre

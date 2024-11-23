@@ -46,12 +46,12 @@ int main() {
     displayMap(map);
 
     t_node * arbre=tree(map);
-    printf("%d %d %d %d %d ",arbre->cost,arbre->loc.pos.x,arbre->loc.pos.y,arbre->nbSons,arbre->depth);
-    printf("end");
+
     createtree(arbre,map);
-    printf("%d %d %d %d %d ",arbre->cost,arbre->loc.pos.x,arbre->loc.pos.y,arbre->nbSons,arbre->depth);
+
     displaytree(arbre);
-    printf("%d %d %d %d %d ",arbre->cost,arbre->loc.pos.x,arbre->loc.pos.y,arbre->nbSons,arbre->depth);
+    t_queue list= createQueue(5);
+
     return 0;
 }
 

@@ -58,10 +58,13 @@ int randomint(int a,int b){
     return (rand()%a);
 }
 
+
+
 //_________________________________________________________________________________//
 
 // Fonction pour créer un arbre en fonction d'une carte donnée
 // Génère récursivement un arbre avec une certaine profondeur et Les coûts associés
+
 void createtree(t_node* tree,t_map map){
     if (tree->loc.pos.x<map.x_max && tree->depth<10){
         tree->nbSons++;
