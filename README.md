@@ -34,6 +34,7 @@ Chaque noeud comporte la position de MARC, le coût actuel par rapport à la pos
 - [Affichage de l'arbre]
 - [Calcul du coût minimal]
 - [Génération de la position du robot]
+- [Déplacements du robot]
 - [Analyse de la complexité]
 
 ## Analyse de complexité des fonctions utilisées 
@@ -58,13 +59,23 @@ Chaque noeud comporte la position de MARC, le coût actuel par rapport à la pos
    - Complexité : O(2^10) (limitée par la profondeur de 10)
    - La fonction construit un arbre récursivement, avec une profondeur maximale de 10, ce qui limite l'explosion exponentielle des fils. La complexité est constante pour cette profondeur, mais exponentielle en cas de profondeur illimitée.
 
-6. displaytree(t_node *tree) :
+6. t_move newmove(char * moving) :
+   - Complexité globale est O(k \cdot n), où 𝑘=7 (le nombre de conditions dans la fonction)
+
+7. newtree(t_node* tree,t_map map,int * alvailable_move) :
+   - Complexité temporelle est 𝑂(5𝑑)O(5 d ), où 𝑑=10d=10, ce qui est exponentiel
+   - Complexité spatiale est 𝑂(5𝑑)O(5 d ) à cause de la structure de l’arbre.
+
+8. displaytree(t_node *tree) :
    - Complexité : O(n)
    - Effectue une traversée DFS de l'arbre pour afficher les coûts de chaque nœud, visitant chaque nœud une seule fois.
 
-7. treememoryfree(t_node *node) :
+9. treememoryfree(t_node *node) :
    - Complexité : O(n)
-   - Libère la mémoire allouée à l'arbre en effectuant une traversée DFS pour libérer chaque nœud.
-
+   - Libère la mémoire allouée à l'arbre en effectuant une traversée DFS pour libérer chaque noeud.
+  
+10. void print_tree(t_node *node, int depth) : 
+    - Complexité : Si l'arbre contient 𝑁 noeuds, la complexité est O(N).
+     
 // les fonctions de l'arbre manipulent des structures de données en utilisant principalement des traversées DFS, avec des complexités allant de O(1) pour les opérations simples à O(n) pour les traversées de l'arbre. La fonction `createtree` peut avoir une complexité exponentielle (O(2^10)) si la profondeur de l'arbre n'est pas limitée.
 
