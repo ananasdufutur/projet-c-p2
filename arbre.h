@@ -23,4 +23,4 @@ typedef struct s_node
 } t_node;
 
 t_node *createNode(t_localisation, t_move *, int, t_map, int, t_move);
-void sonNod(t_node *);
+void sonNod(t_node *, t_map);
