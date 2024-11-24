@@ -57,16 +57,24 @@ t_localisation translate(t_localisation loc, t_move move)
         case F_10:
             switch (loc.ori) {
                 case NORTH:
-                    res.y = loc.pos.y - 1;
+                    if(loc.pos.y>0) {
+                        res.y = loc.pos.y - 1;
+                    }
                     break;
                 case EAST:
-                    res.x = loc.pos.x + 1;
+                    if(loc.pos.x<7) {
+                        res.x = loc.pos.x + 1;
+                    }
                     break;
                 case SOUTH:
-                    res.y = loc.pos.y + 1;
+                    if(loc.pos.y<6) {
+                        res.y = loc.pos.y + 1;
+                    }
                     break;
                 case WEST:
-                    res.x = loc.pos.x - 1;
+                    if(loc.pos.x>0) {
+                        res.x = loc.pos.x - 1;
+                    }
                     break;
                 default:
                     break;
@@ -75,16 +83,24 @@ t_localisation translate(t_localisation loc, t_move move)
         case F_20:
             switch (loc.ori) {
                 case NORTH:
-                    res.y = loc.pos.y - 2;
+                    if(loc.pos.y>2) {
+                        res.y = loc.pos.y - 2;
+                    }
                     break;
                 case EAST:
-                    res.x = loc.pos.x + 2;
+                    if(loc.pos.x<6) {
+                        res.x = loc.pos.x + 2;
+                    }
                     break;
                 case SOUTH:
-                    res.y = loc.pos.y + 2;
+                    if(loc.pos.y<5) {
+                        res.y = loc.pos.y + 2;
+                    }
                     break;
                 case WEST:
-                    res.x = loc.pos.x - 2;
+                    if(loc.pos.x>1) {
+                        res.x = loc.pos.x - 2;
+                    }
                     break;
                 default:
                     break;
@@ -93,16 +109,24 @@ t_localisation translate(t_localisation loc, t_move move)
         case F_30:
             switch (loc.ori) {
                 case NORTH:
-                    res.y = loc.pos.y - 3;
+                    if(loc.pos.y>2) {
+                        res.y = loc.pos.y - 3;
+                    }
                     break;
                 case EAST:
-                    res.x = loc.pos.x + 3;
+                    if(loc.pos.x<5) {
+                        res.x = loc.pos.x + 3;
+                    }
                     break;
                 case SOUTH:
-                    res.y = loc.pos.y + 3;
+                    if(loc.pos.y<4) {
+                        res.y = loc.pos.y + 3;
+                    }
                     break;
                 case WEST:
-                    res.x = loc.pos.x - 3;
+                    if(loc.pos.x>2) {
+                        res.x = loc.pos.x - 3;
+                    }
                     break;
                 default:
                     break;
@@ -111,16 +135,24 @@ t_localisation translate(t_localisation loc, t_move move)
         case B_10:
             switch (loc.ori) {
                 case NORTH:
-                    res.y = loc.pos.y + 1;
+                    if(loc.pos.y<6) {
+                        res.y = loc.pos.y + 1;
+                    }
                     break;
                 case EAST:
-                    res.x = loc.pos.x - 1;
+                    if(loc.pos.x>0) {
+                        res.x = loc.pos.x - 1;
+                    }
                     break;
                 case SOUTH:
-                    res.y = loc.pos.y - 1;
+                    if(loc.pos.y>0) {
+                        res.y = loc.pos.y - 1;
+                    }
                     break;
                 case WEST:
-                    res.x = loc.pos.x + 1;
+                    if(loc.pos.x<7) {
+                        res.x = loc.pos.x + 1;
+                    }
                     break;
                 default:
                     break;

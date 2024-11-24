@@ -2,6 +2,8 @@
 #include "map.h"
 #include "loc.h"
 #include "stdlib.h"
+#include "stdio.h"
+#include "string.h"
 
 //_________________________________________________________________________________//
 
@@ -29,8 +31,8 @@ t_node *createNode(t_localisation loc1, int nb_sons,int depth,int cost)
 // Fonction pour créer un arbre en partant d'une carte
 // Prend en paramètre la carte à utiliser et retourne le premier noeud de l'arbre
 t_node *tree(t_map map){
-    t_localisation loc ={{0,0},NORTH}; // Initialisation de la localisation (Origine)
-    t_node *new= createNode(loc,5,0,0); // Crée un noeud avec cette localisation
+    t_localisation loc ={{0,0},SOUTH}; // Initialisation de la localisation (Origine)
+    t_node *new= createNode(loc,0,0,0); // Crée un noeud avec cette localisation
     return new;
 }
 
@@ -53,9 +55,10 @@ int mincost(t_map map,t_node *tree){
 //_________________________________________________________________________________//
 
 // Fonction pour générer un nombre entier aléatoire entre a et b
-int randomint(int a,int b){
-    srand(1); // Initialise le générateur de nombres aléatoires
-    return (rand()%a);
+int randomint(int a){
+    int b=rand()%a;
+    //srand(3); // Initialise le générateur de nombres aléatoires
+    return b;
 }
 
 
@@ -79,8 +82,79 @@ void createtree(t_node* tree,t_map map){
         createtree(tree->sons[tree->nbSons-1],map);
     }
     // Affiche les coordonnées (x et y) du noeud actuel et son coût
-    printf("en x:%d et y:%d cost=%d",tree->loc.pos.x,tree->loc.pos.y,tree->cost);
+    //printf("en x:%d et y:%d cost=%d",tree->loc.pos.x,tree->loc.pos.y,tree->cost);
 }
+
+t_move newmove(char * moving){
+    if (strcmp(moving,"F 10m")==0){
+        t_move new=F_10;
+        return new;
+    }
+    if (strcmp(moving,"F 20m")==0){
+        t_move new=F_20;
+        return new;
+    }
+    if (strcmp(moving,"F 30m")==0){
+        t_move new=F_30;
+        return new;
+    }
+    if (strcmp(moving,"B 10m")==0){
+        t_move new=B_10;
+        return new;
+    }
+    if (strcmp(moving,"T left")==0){
+        t_move new=T_LEFT;
+        return new;
+    }
+    if (strcmp(moving,"T right")==0){
+        t_move new=T_RIGHT;
+        return new;
+    }
+    if (strcmp(moving,"U-turn")==0){
+        t_move new=U_TURN;
+        return new;
+    }
+}
+
+
+
+void newtree(t_node* tree,t_map map,int * alvailable_move){
+
+
+
+    if(tree->cost>9999 || tree->depth>10) {
+        free(tree);
+    }
+    else {
+        if(tree->cost==0 && tree->depth!=0){
+            printf("found");
+        }
+        else {
+            int a;
+            for (int i = 0; i < 5; i++) {
+                do {
+                    a = randomint(8);
+                } while (alvailable_move[a] == 0);
+                int *newalvailablemoves = alvailable_move;
+                newalvailablemoves[a]--;
+                tree->nbSons++;
+                char *moving = _moves[a];
+                //printf("%s",moving);
+                t_move new = newmove(moving);
+                //printf("%d",new);
+                //printf("a= %d-",a);
+                t_localisation loc = move(tree->loc, new);
+                printf("%d %d",loc.pos.x,loc.pos.y);
+                tree->sons[tree->nbSons - 1] = createNode(loc, 0, tree->depth + 1, map.costs[loc.pos.x][loc.pos.y]);
+                printf("x=%d,y=%d,nb_sons=%d,depht=%d,cost=%d",tree->loc.pos.x,tree->loc.pos.y,tree->nbSons,tree->depth,tree->cost);
+                newtree(tree->sons[tree->nbSons - 1], map, newalvailablemoves);
+            }
+            printf("fini");
+        }
+    }
+}
+
+
 
 //_________________________________________________________________________________//
 

@@ -42,15 +42,16 @@ int main() {
     }
 
 //_________________________________________________________________________________//
-
+    int alvailablemoves[7]={22,15,7,7,21,21,7};
     displayMap(map);
 
     t_node * arbre=tree(map);
 
-    createtree(arbre,map);
+    newtree(arbre,map,alvailablemoves);
 
     displaytree(arbre);
-    t_queue list= createQueue(5);
+
+
 
     return 0;
 }

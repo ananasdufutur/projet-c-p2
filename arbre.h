@@ -55,3 +55,7 @@ void displaytree(t_node* );
 void treememoryfree(t_node*);
 
 //_________________________________________________________________________________//
+
+int randomint(int );
+void newtree(t_node* ,t_map ,int * );
+t_move newmove(char * );
