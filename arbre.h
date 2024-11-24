@@ -11,6 +11,10 @@
 #include "moves.h"
 #include "map.h"
 
+
+#define ROWS 7
+#define COLS 6
+
 typedef struct s_node
 {
     t_localisation loc;
@@ -24,3 +28,8 @@ typedef struct s_node
 
 t_node *createNode(t_localisation, t_move *, int, t_map, int, t_move);
 void sonNod(t_node *, t_map);
+
+t_map createMapFromFile(char *filename);
+void print_map(int map[ROWS][COLS]);
+void generate_map(int map[ROWS][COLS]);
+void displayMap(t_map map);

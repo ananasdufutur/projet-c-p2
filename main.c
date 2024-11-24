@@ -2,6 +2,10 @@
 #include "map.h"
 #include "arbre.h"
 
+
+#define ROWS 7
+#define COLS 6
+
 int main() {
     t_map map;
 

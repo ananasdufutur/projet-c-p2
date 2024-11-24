@@ -5,9 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "map.h"
 #include "loc.h"
 #include "queue.h"
+
+#define ROWS 7
+#define COLS 6
 
 /* prototypes of local functions */
 /* local functions are used only in this file, as helper functions */
@@ -300,4 +304,61 @@ void displayMap(t_map map)
 
     }
     return;
+}
+
+
+
+// Fonction pour générer une carte
+void generate_map(int map[ROWS][COLS]) {
+    // Initialisation aléatoire
+    srand(time(NULL));
+
+    // Remplir la carte avec des reliefs aléatoires (1, 2, 3)
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            map[i][j] = rand() % 3 + 1; // Valeurs entre 1 et 3
+        }
+    }
+
+    // Placer la base (0) à une position aléatoire (pas dans les coins)
+    int base_x = rand() % (ROWS - 2) + 1;
+    int base_y = rand() % (COLS - 2) + 1;
+    map[base_x][base_y] = 0;
+
+    // Placer les crevasses (4) en évitant qu'elles soient adjacentes à la base ou entre elles
+    int crevasse_count = 0;
+    while (crevasse_count < 4) {
+        int x = rand() % ROWS;
+        int y = rand() % COLS;
+        if (map[x][y] != 0 && map[x][y] != 4 && abs(x - base_x) > 1 && abs(y - base_y) > 1) {
+            int adjacent_to_crevasse = 0;
+            // Vérifier les positions adjacentes
+            for (int dx = -1; dx <= 1; dx++) {
+                for (int dy = -1; dy <= 1; dy++) {
+                    if (x + dx >= 0 && x + dx < ROWS && y + dy >= 0 && y + dy < COLS) {
+                        if (map[x + dx][y + dy] == 4) {
+                            adjacent_to_crevasse = 1;
+                            break;
+                        }
+                    }
+                }
+                if (adjacent_to_crevasse) break;
+            }
+            if (!adjacent_to_crevasse) {
+                map[x][y] = 4;
+                crevasse_count++;
+            }
+        }
+    }
+}
+
+// Fonction pour afficher la carte
+void print_map(int map[ROWS][COLS]) {
+    printf("7\n6\n");
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            printf("%d ", map[i][j]);
+        }
+        printf("\n");
+    }
 }
