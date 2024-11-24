@@ -3,6 +3,11 @@
 //
 
 #include "moves.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "loc.h"
+#include "map.h"
+
 
 /* prototypes of local functions */
 /* local functions are used only in this file, as helper functions */
@@ -13,7 +18,7 @@
  * @param move : the move to do
  * @return the new orientation of the robot
  */
-t_orientation rotate(t_orientation, t_move );
+t_orientation rotate(t_orientation, t_move, t_map, t_localisation);
 
 /**
  * @brief function to translate the robot according to a move and its actual position
@@ -25,22 +30,37 @@ t_localisation translate(t_localisation , t_move);
 
 /* definition of local functions */
 
-t_orientation rotate(t_orientation ori, t_move move)
+t_orientation rotate(t_orientation ori, t_move move, t_map map, t_localisation loc)
 {
     int rst;
-    switch (move)
-    {
-        case T_LEFT:
-            rst=3;
-            break;
-        case T_RIGHT:
-            rst=1;
-            break;
-        case U_TURN:
-            rst=2;
+    switch (map.soils[loc.pos.x][loc.pos.y]) {
+        case ERG:
+            switch (move) {
+                case U_TURN:
+                    rst = (rand() % 2) * 2 + 1;
+                default:
+                    break;
+            }
             break;
         default:
-            break;
+
+            if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
+                switch (move) {
+                    case T_LEFT:
+                        rst = 3;
+                        break;
+                    case T_RIGHT:
+                        rst = 1;
+                        break;
+                    case U_TURN:
+                        rst = 2;
+                        break;
+                    default:
+                        break;
+                }
+            }else {
+                break;
+            }
     }
     return (ori+rst)%4;
 }
@@ -161,6 +181,7 @@ t_localisation translate(t_localisation loc, t_move move)
         default:
             break;
     }
+    //printf("res.x= %d res.y= %d ",res.x,res.y);
         return loc_init(res.x, res.y, loc.ori);
 
 }
@@ -172,16 +193,16 @@ char *getMoveAsString(t_move move)
     return _moves[move];
 }
 
-t_localisation move(t_localisation loc, t_move move)
+t_localisation move(t_localisation loc, t_move move,t_map map)
 {
     t_localisation new_loc;
-    new_loc.ori = rotate(loc.ori, move);
+    new_loc.ori = rotate(loc.ori, move,map,loc);
     new_loc = translate(loc, move);
     return new_loc;
 }
 
-void updateLocalisation(t_localisation *p_loc, t_move m)
+void updateLocalisation(t_localisation *p_loc, t_move m,t_map map)
 {
-    *p_loc = move(*p_loc, m);
+    *p_loc = move(*p_loc,m, map);
     return;
 }
