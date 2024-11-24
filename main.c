@@ -42,6 +42,7 @@ int main() {
     }
 
 //_________________________________________________________________________________//
+
     int alvailablemoves[7]={22,15,7,7,21,21,7};
     displayMap(map);
 
@@ -50,8 +51,6 @@ int main() {
     newtree(arbre,map,alvailablemoves);
 
     displaytree(arbre);
-
-
 
     return 0;
 }

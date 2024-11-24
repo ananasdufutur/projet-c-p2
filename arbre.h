@@ -54,8 +54,13 @@ void displaytree(t_node* );
 // Paramètre : noeud
 void treememoryfree(t_node*);
 
-//_________________________________________________________________________________//
-
 int randomint(int );
+
 void newtree(t_node* ,t_map ,int * );
+
 t_move newmove(char * );
+
+// Traverse et imprime l'arbre récursivement
+void print_tree(t_node *node, int depth);
+
+//_________________________________________________________________________________//
