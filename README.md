@@ -26,7 +26,11 @@ Le but étant de rendre MARC le robot martien mobile tout en minimisant le coût
 utiliser des arbres N-aire pour définir le chemin de MARC.
 Chaque noeud comporte la position de MARC, le coût actuel par rapport à la position et les déplacements disponibles.  
 
-## Tâches accomplie
+## Difficultées rencontrées 
+
+Mise en place Github | Merge conflicts | Branch conflicts | Compréhension du sujet | Délais impartie - Deadline (Temps)
+
+## Tâches réalisées
 
 - [Structure de l'arbre]
 - [Création de noeuds]
