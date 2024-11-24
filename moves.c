@@ -78,16 +78,24 @@ t_localisation translate(t_localisation loc, t_move move, t_map map)
                     if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
                         switch (loc.ori) {
                             case NORTH:
-                                res.y = loc.pos.y - 1;
+                                if(loc.pos.y>0) {
+                                    res.y = loc.pos.y - 1;
+                                }
                                 break;
                             case EAST:
-                                res.x = loc.pos.x + 1;
+                                if(loc.pos.x<6) {
+                                    res.x = loc.pos.x + 1;
+                                }
                                 break;
                             case SOUTH:
-                                res.y = loc.pos.y + 1;
+                                if(loc.pos.y<7) {
+                                    res.y = loc.pos.y + 1;
+                                }
                                 break;
                             case WEST:
-                                res.x = loc.pos.x - 1;
+                                if(loc.pos.x>0) {
+                                    res.x = loc.pos.x - 1;
+                                }
                                 break;
                             default:
                                 break;
@@ -103,16 +111,24 @@ t_localisation translate(t_localisation loc, t_move move, t_map map)
                 case ERG:
                     switch (loc.ori) {
                         case NORTH:
-                            res.y = loc.pos.y - 1;
+                            if(loc.pos.y>0) {
+                                res.y = loc.pos.y - 1;
+                            }
                             break;
                         case EAST:
-                            res.x = loc.pos.x + 1;
+                            if(loc.pos.x<6) {
+                                res.x = loc.pos.x + 1;
+                            }
                             break;
                         case SOUTH:
-                            res.y = loc.pos.y + 1;
+                            if(loc.pos.y<7) {
+                                res.y = loc.pos.y + 1;
+                            }
                             break;
                         case WEST:
-                            res.x = loc.pos.x - 1;
+                            if(loc.pos.x>0) {
+                                res.x = loc.pos.x - 1;
+                            }
                             break;
                         default:
                             break;
@@ -122,16 +138,24 @@ t_localisation translate(t_localisation loc, t_move move, t_map map)
                     if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
                         switch (loc.ori) {
                             case NORTH:
-                                res.y = loc.pos.y - 2;
+                                if(loc.pos.y>2) {
+                                    res.y = loc.pos.y - 2;
+                                }
                                 break;
                             case EAST:
-                                res.x = loc.pos.x + 2;
+                                if(loc.pos.x<5) {
+                                    res.x = loc.pos.x + 2;
+                                }
                                 break;
                             case SOUTH:
-                                res.y = loc.pos.y + 2;
+                                if(loc.pos.y<6) {
+                                    res.y = loc.pos.y + 2;
+                                }
                                 break;
                             case WEST:
-                                res.x = loc.pos.x - 2;
+                                if(loc.pos.x>1) {
+                                    res.x = loc.pos.x - 2;
+                                }
                                 break;
                             default:
                                 break;
@@ -146,16 +170,24 @@ t_localisation translate(t_localisation loc, t_move move, t_map map)
                 case ERG:
                     switch (loc.ori) {
                         case NORTH:
-                            res.y = loc.pos.y - 2;
+                            if(loc.pos.y>2) {
+                                res.y = loc.pos.y - 2;
+                            }
                             break;
                         case EAST:
-                            res.x = loc.pos.x + 2;
+                            if(loc.pos.x<5) {
+                                res.x = loc.pos.x + 2;
+                            }
                             break;
                         case SOUTH:
-                            res.y = loc.pos.y + 2;
+                            if(loc.pos.y<6) {
+                                res.y = loc.pos.y + 2;
+                            }
                             break;
                         case WEST:
-                            res.x = loc.pos.x - 2;
+                            if(loc.pos.x>1) {
+                                res.x = loc.pos.x - 2;
+                            }
                             break;
                         default:
                             break;
@@ -165,16 +197,24 @@ t_localisation translate(t_localisation loc, t_move move, t_map map)
                     if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
                         switch (loc.ori) {
                             case NORTH:
-                                res.y = loc.pos.y - 3;
+                                if(loc.pos.y>2) {
+                                    res.y = loc.pos.y - 3;
+                                }
                                 break;
                             case EAST:
-                                res.x = loc.pos.x + 3;
+                                if(loc.pos.x<4) {
+                                    res.x = loc.pos.x + 3;
+                                }
                                 break;
                             case SOUTH:
-                                res.y = loc.pos.y + 3;
+                                if(loc.pos.y<5) {
+                                    res.y = loc.pos.y + 3;
+                                }
                                 break;
                             case WEST:
-                                res.x = loc.pos.x - 3;
+                                if(loc.pos.x>2) {
+                                    res.x = loc.pos.x - 3;
+                                }
                                 break;
                             default:
                                 break;
@@ -193,16 +233,24 @@ t_localisation translate(t_localisation loc, t_move move, t_map map)
                     if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
                         switch (loc.ori) {
                             case NORTH:
-                                res.y = loc.pos.y + 1;
+                                if(loc.pos.y<7) {
+                                    res.y = loc.pos.y + 1;
+                                }
                                 break;
                             case EAST:
-                                res.x = loc.pos.x - 1;
+                                if(loc.pos.x>0) {
+                                    res.x = loc.pos.x - 1;
+                                }
                                 break;
                             case SOUTH:
-                                res.y = loc.pos.y - 1;
+                                if(loc.pos.y>0) {
+                                    res.y = loc.pos.y - 1;
+                                }
                                 break;
                             case WEST:
-                                res.x = loc.pos.x + 1;
+                                if(loc.pos.x<6) {
+                                    res.x = loc.pos.x + 1;
+                                }
                                 break;
                             default:
                                 break;
