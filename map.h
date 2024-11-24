@@ -55,4 +55,6 @@ t_map createMapFromFile(char *);
  */
 void displayMap(t_map);
 
+
+
 #endif //UNTITLED1_MAP_H
