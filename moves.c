@@ -26,7 +26,7 @@ t_orientation rotate(t_orientation, t_move, t_map, t_localisation);
  * @param move : the move to do
  * @return the new localisation of the robot
  */
-t_localisation translate(t_localisation , t_move);
+t_localisation translate(t_localisation , t_move,t_map map);
 
 /* definition of local functions */
 
@@ -65,7 +65,7 @@ t_orientation rotate(t_orientation ori, t_move move, t_map map, t_localisation l
     return (ori+rst)%4;
 }
 
-t_localisation translate(t_localisation loc, t_move move)
+t_localisation translate(t_localisation loc, t_move move, t_map map)
 {
     /** rules for coordinates:
      *  - x grows to the right with step of +1
@@ -75,114 +75,199 @@ t_localisation translate(t_localisation loc, t_move move)
     t_position res = loc.pos;
     switch (move) {
         case F_10:
-            switch (loc.ori) {
-                case NORTH:
-                    if(loc.pos.y>0) {
-                        res.y = loc.pos.y - 1;
-                    }
-                    break;
-                case EAST:
-                    if(loc.pos.x<6) {
-                        res.x = loc.pos.x + 1;
-                    }
-                    break;
-                case SOUTH:
-                    if(loc.pos.y<7) {
-                        res.y = loc.pos.y + 1;
-                    }
-                    break;
-                case WEST:
-                    if(loc.pos.x>0) {
-                        res.x = loc.pos.x - 1;
-                    }
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
                     break;
                 default:
-                    break;
+                    if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
+                        switch (loc.ori) {
+                            case NORTH:
+                                if(loc.pos.y>0) {
+                                    res.y = loc.pos.y - 1;
+                                }
+                                break;
+                            case EAST:
+                                if(loc.pos.x<6) {
+                                    res.x = loc.pos.x + 1;
+                                }
+                                break;
+                            case SOUTH:
+                                if(loc.pos.y<7) {
+                                    res.y = loc.pos.y + 1;
+                                }
+                                break;
+                            case WEST:
+                                if(loc.pos.x>0) {
+                                    res.x = loc.pos.x - 1;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }else{
+                        break;
+                    }
             }
             break;
         case F_20:
-            switch (loc.ori) {
-                case NORTH:
-                    if(loc.pos.y>2) {
-                        res.y = loc.pos.y - 2;
-                    }
-                    break;
-                case EAST:
-                    if(loc.pos.x<5) {
-                        res.x = loc.pos.x + 2;
-                    }
-                    break;
-                case SOUTH:
-                    if(loc.pos.y<6) {
-                        res.y = loc.pos.y + 2;
-                    }
-                    break;
-                case WEST:
-                    if(loc.pos.x>1) {
-                        res.x = loc.pos.x - 2;
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
+                    switch (loc.ori) {
+                        case NORTH:
+                            if(loc.pos.y>0) {
+                                res.y = loc.pos.y - 1;
+                            }
+                            break;
+                        case EAST:
+                            if(loc.pos.x<6) {
+                                res.x = loc.pos.x + 1;
+                            }
+                            break;
+                        case SOUTH:
+                            if(loc.pos.y<7) {
+                                res.y = loc.pos.y + 1;
+                            }
+                            break;
+                        case WEST:
+                            if(loc.pos.x>0) {
+                                res.x = loc.pos.x - 1;
+                            }
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 default:
-                    break;
+                    if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
+                        switch (loc.ori) {
+                            case NORTH:
+                                if(loc.pos.y>2) {
+                                    res.y = loc.pos.y - 2;
+                                }
+                                break;
+                            case EAST:
+                                if(loc.pos.x<5) {
+                                    res.x = loc.pos.x + 2;
+                                }
+                                break;
+                            case SOUTH:
+                                if(loc.pos.y<6) {
+                                    res.y = loc.pos.y + 2;
+                                }
+                                break;
+                            case WEST:
+                                if(loc.pos.x>1) {
+                                    res.x = loc.pos.x - 2;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }else{
+                        break;
+                    }
             }
             break;
         case F_30:
-            switch (loc.ori) {
-                case NORTH:
-                    if(loc.pos.y>2) {
-                        res.y = loc.pos.y - 3;
-                    }
-                    break;
-                case EAST:
-                    if(loc.pos.x<4) {
-                        res.x = loc.pos.x + 3;
-                    }
-                    break;
-                case SOUTH:
-                    if(loc.pos.y<5) {
-                        res.y = loc.pos.y + 3;
-                    }
-                    break;
-                case WEST:
-                    if(loc.pos.x>2) {
-                        res.x = loc.pos.x - 3;
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
+                    switch (loc.ori) {
+                        case NORTH:
+                            if(loc.pos.y>2) {
+                                res.y = loc.pos.y - 2;
+                            }
+                            break;
+                        case EAST:
+                            if(loc.pos.x<5) {
+                                res.x = loc.pos.x + 2;
+                            }
+                            break;
+                        case SOUTH:
+                            if(loc.pos.y<6) {
+                                res.y = loc.pos.y + 2;
+                            }
+                            break;
+                        case WEST:
+                            if(loc.pos.x>1) {
+                                res.x = loc.pos.x - 2;
+                            }
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 default:
+                    if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
+                        switch (loc.ori) {
+                            case NORTH:
+                                if(loc.pos.y>2) {
+                                    res.y = loc.pos.y - 3;
+                                }
+                                break;
+                            case EAST:
+                                if(loc.pos.x<4) {
+                                    res.x = loc.pos.x + 3;
+                                }
+                                break;
+                            case SOUTH:
+                                if(loc.pos.y<5) {
+                                    res.y = loc.pos.y + 3;
+                                }
+                                break;
+                            case WEST:
+                                if(loc.pos.x>2) {
+                                    res.x = loc.pos.x - 3;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }else{
+                        break;
+                    }
                     break;
             }
             break;
         case B_10:
-            switch (loc.ori) {
-                case NORTH:
-                    if(loc.pos.y<7) {
-                        res.y = loc.pos.y + 1;
-                    }
-                    break;
-                case EAST:
-                    if(loc.pos.x>0) {
-                        res.x = loc.pos.x - 1;
-                    }
-                    break;
-                case SOUTH:
-                    if(loc.pos.y>0) {
-                        res.y = loc.pos.y - 1;
-                    }
-                    break;
-                case WEST:
-                    if(loc.pos.x<6) {
-                        res.x = loc.pos.x + 1;
-                    }
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
                     break;
                 default:
-                    break;
+                    if (map.soils[loc.pos.x][loc.pos.y] == PLAIN || map.soils[loc.pos.x][loc.pos.y] == REG) {
+                        switch (loc.ori) {
+                            case NORTH:
+                                if(loc.pos.y<7) {
+                                    res.y = loc.pos.y + 1;
+                                }
+                                break;
+                            case EAST:
+                                if(loc.pos.x>0) {
+                                    res.x = loc.pos.x - 1;
+                                }
+                                break;
+                            case SOUTH:
+                                if(loc.pos.y>0) {
+                                    res.y = loc.pos.y - 1;
+                                }
+                                break;
+                            case WEST:
+                                if(loc.pos.x<6) {
+                                    res.x = loc.pos.x + 1;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }else{
+                        break;
+                    }
             }
             break;
         default:
             break;
     }
-    //printf("res.x= %d res.y= %d ",res.x,res.y);
-        return loc_init(res.x, res.y, loc.ori);
+    return loc_init(res.x, res.y, loc.ori);
 
 }
 
@@ -197,7 +282,7 @@ t_localisation move(t_localisation loc, t_move move,t_map map)
 {
     t_localisation new_loc;
     new_loc.ori = rotate(loc.ori, move,map,loc);
-    new_loc = translate(loc, move);
+    new_loc = translate(loc, move,map);
     return new_loc;
 }
 

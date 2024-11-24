@@ -1,13 +1,17 @@
-# ninja log v6
-13	70	7541514466401187	CMakeFiles/MonExecutable.dir/main.c.obj	a3ea7cadb48bc69a
+# ninja log v5
+5	310	7541536830945697	CMakeFiles/MonExecutable.dir/main.c.obj	a3ea7cadb48bc69a
 20	71	7541514466478676	CMakeFiles/MonExecutable.dir/loc.c.obj	f9248e70a2ef33d3
+70	314	7541536831600973	CMakeFiles/MonExecutable.dir/moves.c.obj	71c4f6442bf2b6ef
 26	75	7541514466538822	CMakeFiles/MonExecutable.dir/stack.c.obj	6b3e3a2277baef3c
-22	79	7541514466498950	CMakeFiles/MonExecutable.dir/moves.c.obj	71c4f6442bf2b6ef
 25	83	7541514466518885	CMakeFiles/MonExecutable.dir/queue.c.obj	91e3d52ea7dcfd96
 17	99	7541514466441862	CMakeFiles/MonExecutable.dir/map.c.obj	1ae9c69a2565f138
-19	115	7541514466461753	CMakeFiles/MonExecutable.dir/arbre.c.obj	e42a335c9640ed4
-115	194	7541514467424326	MonExecutable.exe	32f51c17a58343
-5	310	7541536830945697	CMakeFiles/MonExecutable.dir/main.c.obj	a3ea7cadb48bc69a
-66	311	7541536831555007	CMakeFiles/MonExecutable.dir/arbre.c.obj	e42a335c9640ed4
-70	314	7541536831600973	CMakeFiles/MonExecutable.dir/moves.c.obj	71c4f6442bf2b6ef
 314	593	7541536834036280	MonExecutable.exe	32f51c17a58343
+66	311	7541536831555007	CMakeFiles/MonExecutable.dir/arbre.c.obj	e42a335c9640ed4
+20	81	7541568168635154	CMakeFiles/MonExecutable.dir/loc.c.obj	a18b9f8d9921baba
+17	185	7541568169645243	CMakeFiles/MonExecutable.dir/queue.c.obj	1380db4456736608
+6	186	7541568169645243	CMakeFiles/MonExecutable.dir/main.c.obj	c4776b7a4114040e
+24	186	7541568169645243	CMakeFiles/MonExecutable.dir/stack.c.obj	41e5edfff98c15c6
+13	193	7541568169743158	CMakeFiles/MonExecutable.dir/moves.c.obj	c19e697ba34803df
+9	215	7541568169968886	CMakeFiles/MonExecutable.dir/arbre.c.obj	739da5c8d1241614
+0	220	7541568170024031	CMakeFiles/MonExecutable.dir/map.c.obj	1d236a145534f9e5
+220	341	7541568171182755	MonExecutable.exe	5bdc73dc06f2922d
