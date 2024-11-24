@@ -61,6 +61,8 @@ int randomint(int a){
     return b;
 }
 
+
+
 //_________________________________________________________________________________//
 
 // Fonction pour créer un arbre en fonction d'une carte donnée
@@ -83,9 +85,6 @@ void createtree(t_node* tree,t_map map){
     //printf("en x:%d et y:%d cost=%d",tree->loc.pos.x,tree->loc.pos.y,tree->cost);
 }
 
-//_________________________________________________________________________________//
-
-// Vérifie si les chaînes d'entrées correspondent à un mouvement, retourne la valeur du mouvement
 t_move newmove(char * moving){
     if (strcmp(moving,"F 10m")==0){
         t_move new=F_10;
@@ -117,9 +116,12 @@ t_move newmove(char * moving){
     }
 }
 
-//_________________________________________________________________________________//
+
 
 void newtree(t_node* tree,t_map map,int * alvailable_move){
+
+
+
     if(tree->cost>9999 || tree->depth>10) {
         free(tree);
     }
@@ -152,6 +154,8 @@ void newtree(t_node* tree,t_map map,int * alvailable_move){
     }
 }
 
+
+
 //_________________________________________________________________________________//
 
 // Fonction pour afficher l'arbre avec les coûts associés
@@ -179,6 +183,8 @@ void treememoryfree(t_node* node) {
 
 //_________________________________________________________________________________//
 
+//_________________________________________________________________________________//
+
 // Traverse et imprime l'arbre récursivement
 void print_tree(t_node *node, int depth) {
     if (node == NULL) {
@@ -190,5 +196,3 @@ void print_tree(t_node *node, int depth) {
         print_tree(node->sons[i], depth + 1);
     }
 }
-
-//_________________________________________________________________________________//
