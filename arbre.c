@@ -141,7 +141,7 @@ void newtree(t_node* tree,t_map map,int * alvailable_move){
                 t_move new = newmove(moving);
                 //printf("%d",new);
                 //printf("a= %d-",a);
-                t_localisation loc = move(tree->loc, new);
+                t_localisation loc = move(tree->loc, new,map);
                 printf("%d %d",loc.pos.x,loc.pos.y);
                 tree->sons[tree->nbSons - 1] = createNode(loc, 0, tree->depth + 1, map.costs[loc.pos.x][loc.pos.y]);
                 printf("x=%d,y=%d,nb_sons=%d,depht=%d,cost=%d",tree->loc.pos.x,tree->loc.pos.y,tree->nbSons,tree->depth,tree->cost);

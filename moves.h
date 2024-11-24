@@ -6,6 +6,7 @@
 #define UNTITLED1_MOVES_H
 
 #include "loc.h"
+#include "map.h"
 
 /**
  * @brief Array of strings for the possible moves of the robot
@@ -40,7 +41,7 @@ char *getMoveAsString(t_move move);
  * @param move : the move to do
  * @return the new localisation of the robot
  */
-t_localisation move(t_localisation, t_move);
+t_localisation move(t_localisation, t_move,t_map);
 
 /**
  * @brief wrapper function to update a single location
@@ -48,6 +49,6 @@ t_localisation move(t_localisation, t_move);
  * @param move : the move to do
  * @return none
  */
-void updateLocalisation(t_localisation *, t_move);
+void updateLocalisation(t_localisation *, t_move,t_map);
 
 #endif //UNTITLED1_MOVES_H
