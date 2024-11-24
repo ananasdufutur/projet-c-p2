@@ -35,19 +35,18 @@ void deleteElement(t_move arr[], int size, int index) {
     (size)--;
 }
 
-void sonNod(t_node *node){
+void sonNod(t_node *node, t_map map){
     for (int i=0; i<node->sizeAvailableMove; i++) {
-        t_localisation loc = move(node->loc, node->availableMove[i]);
-        t_move *temp = (t_move *)malloc(node->sizeAvailableMove*sizeof(t_move));
-        for (int j=0; j<node->sizeAvailableMove; j++){
+        t_localisation loc = move(node->loc, node->availableMove[i], map);
+        t_move *temp = (t_move *) malloc(node->sizeAvailableMove * sizeof(t_move));
+        for (int j = 0; j < node->sizeAvailableMove; j++) {
             temp[j] = node->availableMove[j];
         }
 
         deleteElement(temp, node->sizeAvailableMove, i);
-        t_node *sonNode = createNode(loc, temp, node->sizeAvailableMove-1, node->map, node->nbMoveRemaining-1, node->availableMove[i])
+        t_node *sonNode = createNode(loc, temp, node->sizeAvailableMove - 1, node->map, node->nbMoveRemaining - 1, node->availableMove[i]);
     }
 }
-
 
 /*t_node *tree(t_map map){
     t_node *new= createNode(0,4,0);

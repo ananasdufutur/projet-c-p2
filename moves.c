@@ -21,7 +21,7 @@ t_orientation rotate(t_orientation, t_move );
  * @param move : the move to do
  * @return the new localisation of the robot
  */
-t_localisation translate(t_localisation , t_move);
+t_localisation translate(t_localisation , t_move, t_map);
 
 /* definition of local functions */
 
@@ -45,7 +45,7 @@ t_orientation rotate(t_orientation ori, t_move move)
     return (ori+rst)%4;
 }
 
-t_localisation translate(t_localisation loc, t_move move)
+t_localisation translate(t_localisation loc, t_move move, t_map map)
 {
     /** rules for coordinates:
      *  - x grows to the right with step of +1
@@ -55,77 +55,132 @@ t_localisation translate(t_localisation loc, t_move move)
     t_position res = loc.pos;
     switch (move) {
         case F_10:
-            switch (loc.ori) {
-                case NORTH:
-                    res.y = loc.pos.y - 1;
-                    break;
-                case EAST:
-                    res.x = loc.pos.x + 1;
-                    break;
-                case SOUTH:
-                    res.y = loc.pos.y + 1;
-                    break;
-                case WEST:
-                    res.x = loc.pos.x - 1;
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
                     break;
                 default:
+                    switch (loc.ori) {
+                        case NORTH:
+                            res.y = loc.pos.y - 1;
+                            break;
+                        case EAST:
+                            res.x = loc.pos.x + 1;
+                            break;
+                        case SOUTH:
+                            res.y = loc.pos.y + 1;
+                            break;
+                        case WEST:
+                            res.x = loc.pos.x - 1;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
             }
             break;
         case F_20:
-            switch (loc.ori) {
-                case NORTH:
-                    res.y = loc.pos.y - 2;
-                    break;
-                case EAST:
-                    res.x = loc.pos.x + 2;
-                    break;
-                case SOUTH:
-                    res.y = loc.pos.y + 2;
-                    break;
-                case WEST:
-                    res.x = loc.pos.x - 2;
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
+                    switch (loc.ori) {
+                        case NORTH:
+                            res.y = loc.pos.y - 1;
+                            break;
+                        case EAST:
+                            res.x = loc.pos.x + 1;
+                            break;
+                        case SOUTH:
+                            res.y = loc.pos.y + 1;
+                            break;
+                        case WEST:
+                            res.x = loc.pos.x - 1;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 default:
+                    switch (loc.ori) {
+                        case NORTH:
+                            res.y = loc.pos.y - 2;
+                            break;
+                        case EAST:
+                            res.x = loc.pos.x + 2;
+                            break;
+                        case SOUTH:
+                            res.y = loc.pos.y + 2;
+                            break;
+                        case WEST:
+                            res.x = loc.pos.x - 2;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
             }
             break;
         case F_30:
-            switch (loc.ori) {
-                case NORTH:
-                    res.y = loc.pos.y - 3;
-                    break;
-                case EAST:
-                    res.x = loc.pos.x + 3;
-                    break;
-                case SOUTH:
-                    res.y = loc.pos.y + 3;
-                    break;
-                case WEST:
-                    res.x = loc.pos.x - 3;
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
+                    switch (loc.ori) {
+                        case NORTH:
+                            res.y = loc.pos.y - 2;
+                            break;
+                        case EAST:
+                            res.x = loc.pos.x + 2;
+                            break;
+                        case SOUTH:
+                            res.y = loc.pos.y + 2;
+                            break;
+                        case WEST:
+                            res.x = loc.pos.x - 2;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 default:
+                    switch (loc.ori) {
+                        case NORTH:
+                            res.y = loc.pos.y - 3;
+                            break;
+                        case EAST:
+                            res.x = loc.pos.x + 3;
+                            break;
+                        case SOUTH:
+                            res.y = loc.pos.y + 3;
+                            break;
+                        case WEST:
+                            res.x = loc.pos.x - 3;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
             }
             break;
         case B_10:
-            switch (loc.ori) {
-                case NORTH:
-                    res.y = loc.pos.y + 1;
-                    break;
-                case EAST:
-                    res.x = loc.pos.x - 1;
-                    break;
-                case SOUTH:
-                    res.y = loc.pos.y - 1;
-                    break;
-                case WEST:
-                    res.x = loc.pos.x + 1;
+            switch (map.soils[loc.pos.x][loc.pos.y]) {
+                case ERG:
                     break;
                 default:
+                    switch (loc.ori) {
+                        case NORTH:
+                            res.y = loc.pos.y + 1;
+                            break;
+                        case EAST:
+                            res.x = loc.pos.x - 1;
+                            break;
+                        case SOUTH:
+                            res.y = loc.pos.y - 1;
+                            break;
+                        case WEST:
+                            res.x = loc.pos.x + 1;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
             }
-            break;
         default:
             break;
     }
@@ -140,16 +195,16 @@ char *getMoveAsString(t_move move)
     return _moves[move];
 }
 
-t_localisation move(t_localisation loc, t_move move)
+t_localisation move(t_localisation loc, t_move move, t_map map)
 {
     t_localisation new_loc;
     new_loc.ori = rotate(loc.ori, move);
-    new_loc = translate(loc, move);
+    new_loc = translate(loc, move, map);
     return new_loc;
 }
 
-void updateLocalisation(t_localisation *p_loc, t_move m)
+void updateLocalisation(t_localisation *p_loc, t_move m, t_map map)
 {
-    *p_loc = move(*p_loc, m);
+    *p_loc = move(*p_loc, m, map);
     return;
 }
