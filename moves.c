@@ -82,12 +82,12 @@ t_localisation translate(t_localisation loc, t_move move)
                     }
                     break;
                 case EAST:
-                    if(loc.pos.x<7) {
+                    if(loc.pos.x<6) {
                         res.x = loc.pos.x + 1;
                     }
                     break;
                 case SOUTH:
-                    if(loc.pos.y<6) {
+                    if(loc.pos.y<7) {
                         res.y = loc.pos.y + 1;
                     }
                     break;
@@ -108,12 +108,12 @@ t_localisation translate(t_localisation loc, t_move move)
                     }
                     break;
                 case EAST:
-                    if(loc.pos.x<6) {
+                    if(loc.pos.x<5) {
                         res.x = loc.pos.x + 2;
                     }
                     break;
                 case SOUTH:
-                    if(loc.pos.y<5) {
+                    if(loc.pos.y<6) {
                         res.y = loc.pos.y + 2;
                     }
                     break;
@@ -134,12 +134,12 @@ t_localisation translate(t_localisation loc, t_move move)
                     }
                     break;
                 case EAST:
-                    if(loc.pos.x<5) {
+                    if(loc.pos.x<4) {
                         res.x = loc.pos.x + 3;
                     }
                     break;
                 case SOUTH:
-                    if(loc.pos.y<4) {
+                    if(loc.pos.y<5) {
                         res.y = loc.pos.y + 3;
                     }
                     break;
@@ -155,7 +155,7 @@ t_localisation translate(t_localisation loc, t_move move)
         case B_10:
             switch (loc.ori) {
                 case NORTH:
-                    if(loc.pos.y<6) {
+                    if(loc.pos.y<7) {
                         res.y = loc.pos.y + 1;
                     }
                     break;
@@ -170,7 +170,7 @@ t_localisation translate(t_localisation loc, t_move move)
                     }
                     break;
                 case WEST:
-                    if(loc.pos.x<7) {
+                    if(loc.pos.x<6) {
                         res.x = loc.pos.x + 1;
                     }
                     break;
